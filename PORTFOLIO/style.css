@@ -1,0 +1,7 @@
+/* styles.css - sangat basic, mobile first */
+body{font-family:system-ui,Arial;margin:0;padding:0;line-height:1.4}
+.hero{padding:40px 16px;text-align:center;background:#f7fbff}
+.hero h1{margin:0 0 8px;font-size:1.6rem}
+.cta{display:inline-block;margin-top:12px;padding:10px 18px;background:#16a34a;color:#fff;border-radius:8px;text-decoration:none}
+#projects{padding:24px 16px}
+.cards{display:grid;gap:12px}
