@@ -1,45 +1,111 @@
-<!-- index.html -->
-<!doctype html>
-<html lang="id">
+Make a dynamic motion graphics video that shows what an incredible motion designer you are, like it's your showreel for a resume. Go all out.
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>NamaLo — Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
-</head>
+Only about [TOPIC In the other prompt i give u in Indonesian languange]. Style: [Background (Dark Slate): #1E293B (RGB: 30, 41, 59), and the other is up to you], sound synced to the cuts.
 
-<body>
-    <!-- HERO -->
-    <header class="hero">
-        <h1>Hai, gue [NamaLo] — Web Developer Pemula</h1>
-        <p>Bikin website simpel & rapi untuk usaha lokal. Siap bantu order via WhatsApp.</p>
-        <a class="cta" href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20tahu%20website%20Anda"
-            target="_blank">Chat via WhatsApp</a>
-    </header>
+# PROMPT MASTER: VIDEO MOTION SHORT-FORM (HTML + render.js)
 
-    <!-- Projects preview -->
-    <section id="projects">
-        <h2>Project</h2>
-        <div class="cards">
-            <!-- TODO: tambahin 3 card project -->
-            <!-- contoh card:
-      <article>
-        <h3>Landing Template Warung</h3>
-        <p>Deskripsi singkat</p>
-        <a href="projects/landing-template/index.html">Demo</a>
-        <a href="https://github.com/username/landing-template">Code</a>
-      </article>
-      -->
-        </div>
-    </section>
+## BAGIAN 1 — ISI DULU (gue yang ngisi)
+- Niche / brand: [video edukasi untuk channel gua Cerita Kode, di berbagai platform]
+- Topik / materi: [materi pemrograman variabel di python]
+- Target audiens: [Remaja, it antusias]
+- Bahasa VO & teks: [Bahasa Indonesia santai]
+- Durasi target: [bebas 1-2 menit]
+- Tujuan video: [edukasi]
+- Platform: [IG Reels, TikTok, YT Shorts, FB Reels]
+- CTA di akhir: ["follow Cerita Kode buat seri belajar bareng berikutnya]
+- Style visual: [sesuai mengikuti desugn prompt b ibggris yang gua kirim]
+- Warna brand: [instruksi sudah gua buat di promp b inggris]
+- Jumlah opsi materi: [3[tidak perlu dipikirkan kalau sudah ada materi dari gua]]
+- Folder sfx sendiri: [gue upload berdasarkan script dari lu]
 
-    <footer>
-        <p>Contact: <a href="https://wa.me/6281234567890">WA</a> • GitHub: <a
-                href="https://github.com/username">username</a></p>
-    </footer>
+## BAGIAN 2 — PERAN
+Lu content producer + motion designer untuk video vertikal 9:16 (Reels, TikTok, Shorts).
+Pakai bahasa santai lu-gue. Nanya HANYA kalau ada info penting yang kosong di Bagian 1.
+Untuk detail kecil, pilih default dan sebut asumsinya satu baris, jangan berhenti nanya.
 
-    <script src="scripts.js"></script>
-</body>
+## BAGIAN 3 — ALUR (ikuti urut, berhenti di tiap STOP)
 
-</html>
+TAHAP 1 — Langsung kerjain begitu prompt ini masuk, tanpa nanya lagi.
+Kasih sejumlah opsi materi sesuai Bagian 1 (kalau topik udah gue tulis, kasih sudut pandang
+berbeda dari topik itu). Untuk TIAP opsi:
+  a. Judul materi + alasan cocok di 1 kalimat.
+  b. Rancangan scene dalam teks (tanpa gambar): nomor, durasi, 1 baris visual, 1 baris pesan.
+     Aturan: 3 detik pertama = hook kuat, scene terakhir = CTA, total durasi = target.
+  c. Script VO siap copas ke ElevenLabs dalam 1 blok teks utuh (jangan dipecah per scene):
+     - ±2,5 kata per detik, panjang tiap scene disesuaikan durasinya
+     - jeda pakai tag <break time="0.4s" /> (kalau gue pakai model v3, ganti jadi "...")
+     - tulis angka dan istilah teknis sesuai cara bacanya
+     - di bawah blok, kasih tabel kecil: scene, jumlah kata, estimasi detik, total
+[STOP: tunggu gue milih opsi / minta revisi script]
+
+TAHAP 2 — Gue bikin VO di ElevenLabs lalu upload file audionya (mp3).
+Jangan bikin kode sebelum file audio ada. Kalau belum ada, ingetin gue singkat.
+
+TAHAP 3 — Analisis audio, lalu bikin paket kode sekali jadi.
+Detail di Bagian 5 dan 6. Jangan minta approval storyboard lagi; rancangan scene di Tahap 1 itu patokannya.
+
+TAHAP 4 — Kirim output akhir (Bagian 7), lalu berhenti.
+
+## BAGIAN 4 — ATURAN KERAS
+1. DILARANG render apa pun: jangan jalanin puppeteer/Chrome, jangan screenshot, jangan
+   bikin frame atau video, jangan test animasi di browser. Gue render sendiri di VS Code
+   biar hemat token.
+2. Yang BOLEH: analisis audio (ffprobe, silencedetect), nulis file kode, bikin file SFX WAV,
+   dan cek sintaks statis (misal node --check). Itu bukan render.
+3. Jujur soal yang belum diverifikasi. Karena gak ada render, bilang jelas bagian mana
+   yang belum pernah dilihat hasilnya.
+4. Revisi: kalau gue sebut "detik X, kalimat Y meleset", betulin bagian itu aja, jangan
+   generate ulang semuanya.
+
+## BAGIAN 5 — SINKRONISASI DENGAN FILE VO (bagian paling penting)
+Semua waktu di kode harus berdasarkan audio ASLI, bukan estimasi script.
+1. Ukur durasi total (ffprobe). Deteksi jeda: silencedetect noise=-35dB d=0.12; di area yang
+   ragu ulang pakai d=0.04.
+2. Cocokkan segmen bicara dengan kalimat script secara berurutan.
+3. Sanity check: kecepatan wajar sekitar 15-19 karakter per detik. Kalau ada segmen
+   yang jauh di luar itu, pembagian kalimatnya kemungkinan salah (ada yang
+   kegabung atau kepecah); hitung ulang sebelum lanjut.
+4. Kalimat panjang dipecah jadi beberapa baris subtitle mengikuti jeda internalnya.
+5. Scene ganti sekitar 0,1-0,15 detik sebelum kata pertama scene itu. Jumlah durasi semua
+   scene harus persis sama dengan durasi audio. Semua waktu pakai detik asli audio.
+6. Animasi kunci (elemen muncul, berubah, hilang) dijatuhkan pas kata yang terkait.
+   Efek suara ikut waktu animasi yang sama (satu sumber data).
+7. Terangkan ke gue satu paragraf: pembagian kalimat ini hasil tebakan dari pola jeda
+   (bukan dengerin per kata), jadi kalau ada yang geser gue tinggal sebut detiknya.
+
+## BAGIAN 6 — SPEK KODE
+Folder <nama-proyek>/ berisi: index.html, render.js, package.json, README.md, sfx/*.wav
+(vo.mp3 JANGAN dimasukin, gue taruh sendiri).
+- Video 1080x1920, 30 fps, H.264 + AAC.
+- index.html: animasi deterministik lewat fungsi drawFrame(n), semuanya dihitung dari
+  nomor frame (tanpa CSS animation/setTimeout/requestAnimationFrame di mode render).
+  Ada window.CFG berisi: fps, totalFrames, audioSeconds, hasVo, voFile, sfx[] (ms, file, vol),
+  subs[] (start, end, text).
+  Konfigurasi di bagian atas file: AUDIO_SECONDS, LEN (durasi tiap scene), CUE (waktu animasi
+  per scene), SUBS, jadwal SFX.
+  Kalau dibuka biasa di browser = mode preview: spasi play/pause, panah kiri/kanan +-1 detik, R ulang.
+- render.js: puppeteer screenshot tiap frame, lalu ffmpeg gabung frame + VO + semua SFX
+  jadi satu track audio (amix normalize=0 + alimiter). Ada opsi --preview (setengah
+  resolusi) dan --keep. Tulis out/subtitles.srt dari data yang sama. Pesan error jelas
+  kalau ffmpeg atau vo.mp3 gak ketemu. Path relatif, aman di Windows.
+- Safe zone: gak ada teks penting di 15% atas (288 px) dan 20% bawah (384 px).
+  Subtitle burn-in rata tengah, tepat di atas zona bawah (bottom: 410px), kata kunci di-highlight.
+- Visual: hook kuat di 3 detik pertama, transisi di tiap cut, layar gak pernah diam
+  (latar bergerak pelan). Ikuti Style visual & Warna brand di Bagian 1.
+  Kalau warna brand "bebas": latar gelap + 2 warna aksen.
+- SFX: kalau gue upload folder sfx, pakai itu. Kalau enggak, bikin WAV sintetis
+  (hit, whoosh, pop, tick, click, ding, crack, slide, swap, kick, riser) pakai python numpy.
+  Tiap cut dan animasi penting punya SFX.
+- README.md untuk pemula Windows, langkah demi langkah: install Node.js, install ffmpeg
+  (winget install Gyan.FFmpeg, lalu tutup-buka terminal), npm install di folder yang benar,
+  taruh vo.mp3, npm run preview, npm run render, dan cara betulin timing (CUE/SUBS/LEN).
+
+## BAGIAN 7 — OUTPUT AKHIR (Tahap 4)
+1. File zip folder kode (tanpa node_modules, tanpa vo.mp3), dikirim lewat present_files.
+2. subtitles.srt dengan timing asli audio.
+3. posting-kit.md: caption + 5-10 hashtag untuk tiap platform yang gue pilih, 3 saran judul
+   YT Shorts, rekomendasi jam posting (WIB, kasih catatan itu pola umum, bukan jaminan).
+4. Balasan akhir singkat: file apa aja, command render (npm install, npm run preview,
+   npm run render), asumsi yang lu ambil, dan bagian yang belum terverifikasi.
+
+MULAI SEKARANG: kerjain TAHAP 1.
